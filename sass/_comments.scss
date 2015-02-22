@@ -1,0 +1,66 @@
+/* ==========================================================================
+   Comments Styles
+   ========================================================================== */
+ol.commentlist {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+
+	li {
+		border: 2px solid $color-darkCement;
+		background-color: #f0f0f0;
+		padding: 10px;
+	}
+}
+
+.comment-author {
+	background-color: $color-darkGreen;
+	color: #fff;
+	padding: 10px;
+
+	a {
+		color: #fff !important;
+		padding: 5px;
+	}
+}
+
+.reply {
+	border-top: 1px solid $color-darkCement;
+	display: block;
+}
+
+a.comment-reply-link {
+	color: #fff !important;
+	background-color: $color-darkGreen;
+	border: 2px solid $color-darkGreen;
+	padding: 5px;
+	margin-top: 20px;
+	display: block;
+	width: 60px;
+	text-align: center;
+}
+
+a.comment-reply-link:hover {
+	color: $color-darkGreen !important;
+	background-color: #fff;
+	text-decoration: none;
+}
+
+form#commentform {
+	input[type="submit"] {
+		color: #fff !important;
+		background-color: $color-darkGreen;
+		border: 2px solid $color-darkGreen;
+		padding: 5px;
+		margin-top: 20px;
+		display: block;
+		text-align: center;	
+	}
+
+	input[type="submit"]:hover {
+		color: $color-darkGreen !important;
+		background-color: #fff;
+		text-decoration: none;
+	}
+
+}

@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Attractions Styles
+   ========================================================================== */
+
+article.attraction-wrap {
+	width: 46%;
+	margin: 0px 2% 20px 2%;
+
+	img {
+		max-width: 98%;
+		@include box-shadow(#474747 0px 5px 20px);
+		margin: 0 auto;
+		display: block;
+	}
+
+	a {
+		color: $color-darkGreen;
+	}
+
+	a:hover {
+		color: lighten($color-darkGreen, 10%);
+	}
+
+	h1 {
+		font-size: 30px;
+		font-size: 3rem;
+		margin: 0px 0 20px 0;
+		padding: 10px 0;
+		text-align: center;
+	}
+
+	.excerpt {
+		margin: 20px 0;
+		text-align: justify;
+		font-size: 20px;
+		font-size: 2rem;
+	}
+
+	a.attraction-more {
+		color: #fff;
+		font-size: 20px;
+		font-size: 2rem;
+		float: right;
+		padding: 10px;
+		background-color: #0b3f1f;
+		border: 2px solid #0b3f1f;
+		text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+		margin-top: 20px;
+	}
+
+	a.attraction-more:hover {
+		color: #0b3f1f;
+	    background-color: #fff;
+	    text-decoration: none;
+	}
+}
+
+@media screen and (max-width: $tablet-small) {
+	article.attraction-wrap {
+		width: 96%;
+		margin: 20px auto !important; 
+		display: block;
+	}
+}
+
+@media screen and (min-width: $tablet-small) {
+	article.attraction-wrap {
+		float: left;
+	}
+}

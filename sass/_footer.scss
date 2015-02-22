@@ -1,0 +1,136 @@
+section.goodbye img {
+	margin-bottom: 100px;
+}
+
+footer#bottom {
+	height: 60px;
+	min-height: 50px;
+	width: 100%;
+	position: relative;
+	z-index: 250;
+	bottom: 0;
+	background-color: $color-darkCement;
+	border-top: 3px solid lighten($color-darkCement, 10%);
+	display: none;
+}
+
+.footerWrap {
+	width: 100%;
+	max-width: $max-width;
+	margin: 0 auto;
+}
+
+a.footer-link {
+  	font-size: 16px;
+  	font-size: 1.6rem;
+	font-weight: 400;
+	line-height: 20px;
+	margin-top: 20px;
+	height: 70px;
+	width: 40%;
+	left: 30%;
+	position: absolute;
+	color: #fff;
+	text-align: center;
+}
+
+@media screen and (max-width: $tablet-small) {
+	a.footer-link {
+		display: none;
+	}
+	
+	a.socialIconFooter {
+		margin-right: 2px !important;
+	}
+}
+
+a.socialIconFooter {
+	width: 50px;
+	height: 50px;
+	display: block;
+	float: left;
+	margin-right: 10px;
+	margin-top: 5px;
+	background-size: 150px 100px;
+}
+
+a.twitterIconFooter {
+	background-image: url('images/socialicons/social-icons.png');
+	background-position:50px 50px;
+	margin-left: 10px;
+}
+
+a.twitterIconFooter:hover {
+	background-position:50px 0px;
+}
+
+a.facebookIconFooter {
+	background-image: url('images/socialicons/social-icons.png');
+	background-position:0px 50px;
+}
+
+a.facebookIconFooter:hover {
+	background-position:0px 0px;
+}
+
+a.googleplusIconFooter {
+	background-image: url('images/socialicons/social-icons.png');
+	background-position:100px 50px;
+}
+
+a.googleplusIconFooter:hover {
+	background-position:100px 0px;
+}
+
+a.tripadvisor {
+	background-image: url('images/tripadvisorfull.png');
+	background-image: no-repeat;
+	width: 207px;
+	height: 40px;
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+	a.twitterIconFooter {
+		background-image: url('images/socialicons/social-icons@2x.png');
+		background-position:100px 0px;
+		margin-left: 5px;
+	}
+
+	a.twitterIconFooter:hover {
+		background-position:100px 100px;
+	}
+
+	a.facebookIconFooter {
+		background-image: url('images/socialicons/social-icons@2x.png');
+		background-position:0px 0px;
+	}
+
+	a.facebookIconFooter:hover {
+		background-position:0px 100px;
+	}
+
+	a.googleplusIconFooter {
+		background-image: url('images/socialicons/social-icons@2x.png');
+		background-position:200px 0px;
+	}
+
+	a.googleplusIconFooter:hover {
+		background-position:200px 100px;
+	}
+
+	a.tripadvisor {
+		background-image: url('images/tripadvisorsmall@2x.png');
+		background-size: 100px 47px;
+		width: 100px;
+		height: 47px;
+		float: right;
+		margin-top: 6px;
+		margin-right: 10px;
+	}    
+}
+

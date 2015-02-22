@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Opening Times Styles
+   ========================================================================== */
+
+table.timetable {
+	width: 100%;
+}
+
+table.timetable th, table.date th {
+	font-size: 22px;
+	font-size: 2.2rem;
+}
+
+table.timetable td, table.date td {
+	font-size: 18px;
+	font-size: 1.8rem;
+	text-align: center;
+}
+
+table.timetable tr.tr-dep {
+	background-color: #cdcdcd;
+}
+
+table.timetable tr.tr-arr {
+	background-color: #b3b3b3;
+	border-bottom: 10px solid $color-backgroundGrey; 
+}
+
+table.date {
+	width: 16%;
+	float: left;
+	margin-right: 0.7%;
+	margin-bottom: 20px;
+	height: 200px;
+}
+
+table.date th, table.date td {
+	text-align: center;
+}
+
+table.date td.date-day {
+	background-color: #cdcdcd;
+	border-bottom: 1px solid $color-darkCement;
+}
+
+table.date td.date-daynum {
+	background-color: #b3b3b3;
+	border-bottom: 1px solid lighten(#b3b3b3, 5%);
+}
+
+@media screen and (max-width: $mobile) {
+	table.date { 
+		width: 40%;
+		display: inline-block;
+		margin-right: 5%;
+	}
+}
+

@@ -84,12 +84,28 @@ Template Name: Homepage
       <p>Sorry, no posts matched your criteria.</p>
      <?php endif; ?>
   </section>
+  
+  <?php 
+  $time = date("Y-m-d");
+  $loop = new WP_Query( array(
+            'numberposts' => -1,
+                      'category_name' => 'events',
+                      'meta_query' => array
+                      (
+                        array(
+                          'key' => 'end_date',
+                          'value' => $time,
+                          'type' => 'DATE',
+                          'compare' => '>='
+                        )
+                      )
+  ));
+  ?>
 
+  <?php if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
+  
   <section class="latest-news">
     <h1> Events</h1>
-    <?php  query_posts('showposts=2&category_name=events'); ?>
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
       <article class="post-wrap">
         <div class="post-featured">
           <?php if ( has_post_thumbnail() ) {
@@ -103,6 +119,7 @@ Template Name: Homepage
           <div class="post-meta">
             Posted on: <?php the_time('jS F Y') ?> by <?php the_author_posts_link() ?>  
           </div>
+          
           <p><?php the_excerpt();?></p>
 
           <a class="post-more" href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>">Read More...</a>
@@ -111,10 +128,11 @@ Template Name: Homepage
         <div class="clearfix"></div>
       </article>
 
-    <?php endwhile; else: ?>
-      
-     <?php endif; ?>
   </section>
+
+  <?php endwhile; else: ?>
+      
+  <?php endif; ?>
 
   <section class="info">
     <a class="info-link info-clock" href="<?php bloginfo('home');?>/plan-visit/opening-times" title="Telford Steam Railway Opening Times"></a>

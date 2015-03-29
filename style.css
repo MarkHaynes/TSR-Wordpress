@@ -1,10 +1,10 @@
 /*!
-Theme Name: TSR - Rocket V1.2
+Theme Name: TSR - Rocket V1.2.2
 Theme URI: https://github.com/MarkHaynes/TSR-Wordpress
 Description: Telford Steam Railway Wordpress Theme.
 Author: Mark Haynes
 Author URI: http://markhaynes.me/
-Version: Rocket - V1.2
+Version: Rocket - V1.2.2
 
 */
 /* ==========================================================================
@@ -502,6 +502,31 @@ ul.fixed-sub-menu {
 @media screen and (min-width: 800px) {
   nav#main {
     display: block; } }
+/* ==========================================================================
+   Header Promo
+   ========================================================================== */
+.header-promo {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-bottom: 2px solid #9e9d99; }
+
+img.header-promo-image {
+  width: 100%;
+  margin: 0 auto; }
+
+img.promo {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  display: block;
+  z-index: 2000;
+  width: 232px;
+  height: 201px; }
+
+@media screen and (max-width: 800px) {
+  img.promo {
+    width: 110px;
+    height: 96px; } }
 section.goodbye img {
   margin-bottom: 100px; }
 
@@ -1229,9 +1254,7 @@ a.share-home {
   display: block; }
 
 .social-image {
-  width: 30%;
-  height: 150px;
-  float: left; }
+  width: 150px; }
   .social-image img {
     max-width: 150px;
     width: 100%;
@@ -1242,9 +1265,22 @@ a.share-home {
   background-position: top; }
 
 .social-box {
-  width: 70%;
-  float: left; }
+  width: 70%; }
 
+@media screen and (min-width: 800px) {
+  .social-image, .social-box {
+    float: left; } }
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+  .social-box {
+    width: 50%; } }
+@media screen and (max-width: 800px) {
+  .social-image {
+    margin: 0 auto; }
+
+  .social-box {
+    width: 90%;
+    margin: 0px auto;
+    display: block; } }
 /* ==========================================================================
    Opening Times Styles
    ========================================================================== */

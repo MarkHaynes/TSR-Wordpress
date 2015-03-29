@@ -286,9 +286,7 @@ a.share-home {
 }
 
 .social-image {
-  width: 30%;
-  height: 150px;
-  float: left;
+  width: 150px;
 
   img {
     max-width: 150px;
@@ -303,6 +301,28 @@ a.share-home {
 
 .social-box {
   width: 70%;
-  float: left;
+}
 
+@media screen and (min-width: 800px) {
+  .social-image, .social-box {
+    float: left;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+  .social-box {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .social-image {
+    margin: 0 auto;
+  }
+
+  .social-box {
+    width: 90%;
+    margin: 0px auto;
+    display: block
+  }
 }

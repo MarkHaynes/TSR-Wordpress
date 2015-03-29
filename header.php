@@ -66,6 +66,8 @@
                 
                 </header>
 
+                <div class="header-promo"><a href="http://telfordsteamrailway.co.uk/attractions/drive-a-steam-train/" title="Book Your Driving Experience Today"><img class="header-promo-image" src="<?php bloginfo('template_url');?>/images/driving-book-bar.png" alt="Book Your Driving Experience Today"></a></div>
+
                 <div id="contentWrapperOuter">
 
                     <nav id="main" role="navigation">

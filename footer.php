@@ -3,12 +3,12 @@
             <section class="goodbye">
                 <img src="<?php bloginfo('template_url');?>/images/telford-logo-bottom.png" alt="telford steam railway">        
             </section> 
-    </div> <!--#wrapper-->
-
+    
+</div> <!--#wrapper-->
         <footer role="contentinfo" id="bottom">
             <div class="footerWrap">
                 <section>
-                    <a class="footer-link" href="<?php bloginfo('url');?>/volunteers" title="Telford Steam Railway Volunteers">Proudly operated by the volunteers of TSR. &copy 2014</a>
+                    <a class="footer-link" href="<?php bloginfo('url');?>/volunteers" title="Telford Steam Railway Volunteers">Proudly operated by the volunteers of TSR. &copy 2015</a>
                     <a class="socialIconFooter twitterIconFooter" href="http://twitter.com/tsrheritage"></a>
                     <a class="socialIconFooter facebookIconFooter" href="http://www.facebook.com/groups/155261792870/"></a>
                     <a class="socialIconFooter googleplusIconFooter" alt="Google Plus" href="https://plus.google.com/106487102494693105178/"></a>
@@ -26,43 +26,74 @@
 
             $(document).ready(function(){
                 var pageWidth = $(window).width();  
-                if ( pageWidth >= 801 ) {
-                    $("#mobile-button").html("Menu");
+                if ( pageWidth >= 851 ) {
+                    $("#fixed-mobile-button").html("Menu");
+                    $( "main" ).css("right", "0");
+                    $( "footer" ).css("right", "0");
                     $( "nav#mobile" ).css("display", "none");
 
                 }
                 $(window).resize(function() {
-                    if ($(window).width() >= 801) {
-                        $("#mobile-button").html("Menu");
+                    if ($(window).width() >= 851) {
+                        $("#fixed-mobile-button").html("Menu");
+                        $( "main" ).css("right", "0");
+                        $( "footer" ).css("right", "0");
                         $( "nav#mobile" ).css("display", "none");
                     }
                 });
             });
+
         
-            $( "#mobile-button" ).click(function() {
-                var value = $("#mobile-button").html();
+            $( "#fixed-mobile-button" ).click(function() {
+                var value = $("#fixed-mobile-button").html();
                 if (value=="Menu"){
-                    $("#mobile-button").html("Close");
+                    $("#fixed-mobile-button").html("Close");
+                    $( "main" ).css("right", "-70%");
+                    //$( "footer" ).css("right", "-70%");
+                    $( "nav#mobile" ).css("display", "table-cell");
                 }
 
                 else {
-                    $("#mobile-button").html("Menu");
+                    $("#fixed-mobile-button").html("Menu");
+                    $( "main" ).css("right", "0");
+                    $( "footer" ).css("right", "0");
+                    setTimeout( function(){
+                        $( "nav#mobile" ).css("display", "none");
+                    },0);                   
                 }
-                $( "nav#mobile" ).slideToggle("easing");
-
+                
+                $( "nav#mobile" ).css("height", "90%");
 
             });
-
-            $(window).scroll(function () {
-               if ($(window).scrollTop() >= 250) {
-                    $( "footer#bottom" ).css("position", "fixed");
-                    $( "footer#bottom" ).fadeIn( 350, function() {
+        
+            $(document).ready(function(){
+                if( $(window).width() <= 850)  {
+                   
+                    $( ".fixed-header-wrap" ).fadeIn( 'slow', function() {
                         // Animation complete
                       });
                }
                else {
-                    $( "footer#bottom" ).css("position", "relative");
-                    $( "footer#bottom" ).fadeOut( 100, function() {
+                   
+                    $( ".fixed-header-wrap" ).fadeOut( 'slow', function() {
+                        // Animation complete
+                      });
+                  
+               }
+
+            });
+
+
+            $(window).scroll(function () {
+               if ($(window).scrollTop() >= 360 || $(window).width() <= 850)  {
+                   
+                    $( ".fixed-header-wrap" ).fadeIn( 'slow', function() {
+                        // Animation complete
+                      });
+               }
+               else {
+                   
+                    $( ".fixed-header-wrap" ).fadeOut( 'slow', function() {
                         // Animation complete
                       });
                   
@@ -85,5 +116,6 @@
             </script>
 
         <?php wp_footer();?>
+        </main>
     </body>
 </html>

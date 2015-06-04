@@ -77,6 +77,13 @@ if ( function_exists( 'add_theme_support' ) ) {
   add_image_size( 'attractions', 500, 281, true); 
 }
 
+if ( function_exists( 'add_theme_support' ) ) { 
+  add_theme_support( 'post-thumbnails4' );
+  set_post_thumbnail_size( 600, 360 );
+  add_image_size( 'news-homepage', 600, 360, true); 
+}
+
+
 //Google Maps
 
 function map_func() {

@@ -49,6 +49,7 @@ $color-cement: #abaaa6;
 $color-darkCement: #9e9d99;
 $color-lightGrey: #e1e1e1;
 $color-backgroundGrey: #d7d7d7;
+$color-white: #fcfcfc;
 
 /* ==========================================================================
    Fonts and Size defaults
@@ -133,10 +134,16 @@ body {
 	font-size: 14px; font-size: 1.4rem; 
 }
 
+main {
+  position: relative;
+}
+
 #wrapper {
 	margin: 0 auto;
 	max-width: $max-width;
   min-width: $min-width;
+  overflow: hidden;
+  position: relative;
 }
 
 #contentWrapper {

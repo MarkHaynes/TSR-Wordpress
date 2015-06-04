@@ -1,0 +1,161 @@
+.fixed-header-wrap {
+	background-color: $color-darkCement;
+	border-bottom: 3px solid lighten($color-darkCement, 10%);
+	display: none;	
+	height: 60px;
+	min-height: 50px;
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
+
+	.fixed-header-inner {
+		margin: 0 auto;
+		width: 100%;
+		max-width: $max-width;
+
+	}
+
+	img.tsr-small-logo {
+		float: left;
+		height: 50px;
+		margin-top: 5px;
+		margin-left: 10px;
+	}
+
+
+}
+
+.fixedHeaderButtonMobile {
+	background-image: url('images/mobile-menu-button.png');
+	height: 50px;
+	width: 122px;
+	float: right;
+	margin-right: 10px;
+	margin-top: 5px;
+	display: none;
+
+	a:link, a:visited {
+		color: #fff;
+		font-size: 20px;
+		font-size: 2rem;
+		display: block;
+		text-align: center;
+		line-height: 50px;
+	}
+
+	img.mobile-menu {
+		width: 50px;
+		
+	}
+}
+
+@media screen and (max-width: 850px) {
+	.fixedHeaderButtonMobile {
+		display: block;
+	}
+}
+
+nav#fixed-header {
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-weight: 400 !important;
+
+	ul.fixed-header {
+		margin: 0px auto;
+		width: 100%;
+		height: 60px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+
+		li {
+			display: inline-block;
+		}
+
+		.lt-ie8 li {
+			*display: inline;
+			zoom: 1;
+		}
+
+		li a {
+			color: #fff;
+			font-weight: 400 !important;
+			
+			padding: 0px 10px;
+			line-height: 60px;
+			display: block;
+		}
+
+		li a:hover {
+			background-color: darken($color-darkCement, 10%);
+			text-decoration: none;
+		}
+	}
+
+	ul.fixed-header li:hover > ul {
+   		 display: block;
+	}
+
+	ul.fixed-header .sub-menu {
+	    display: none;
+	    position: absolute;
+	    z-index: 99999;
+	    padding: 0;
+	    margin: 0;
+	}
+
+	ul.fixed-header .sub-menu li {
+	    display: block;
+	    background-color: $color-darkCement;
+	    max-width: 300px;
+	    width: 100%;
+	    border: 2px solid darken($color-darkCement, 10%);
+	}
+
+	ul.fixed-header .sub-menu li a:link{
+	    line-height: 50px;
+	    display: block;
+	}
+}
+
+ul.sub-menu {
+
+	margin: 0px auto;
+	width: 100%;
+	min-height: 30px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+
+	li {
+		display: inline-block;
+
+		a:link, a:visited {
+			color: #fff;
+			font-size: 16px;
+			font-size: 1.6rem;
+			font-weight: 400 !important;
+			
+			padding: 0px 10px;
+			line-height: 30px;
+			display: block;
+		}	
+	}
+
+	li:hover {
+		background-color: $color-darkCement;
+	}
+}
+
+@media screen and (max-width: 851px) {
+	nav#fixed-header {
+		display: none;
+	}
+}
+@media screen and (min-width: 850px) {
+	nav#fixed-header {
+		display: block;
+	}	
+}

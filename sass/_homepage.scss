@@ -84,20 +84,96 @@ section.latest-news, section.latest-events {
   border-bottom: 2px solid $color-darkCement;
   border-top: 2px solid $color-darkCement;
 
-  article {
+  article.post-wrap {
     background-color: $color-lightGrey;
-    width: 98%;
+    width: 100%;
     margin-bottom: 20px;
-    padding: 1% 1%;
+    padding: 0;
+    vertical-align: top;
+    display: table;
+
 
     h1, p {
       padding: 0px 0px 0px 0px;
+    }
+
+    .post-featured {
+      padding: 0;
+      display: table-cell;
+      height: 100%;
+      position: relative;
+      //background-color: lighten( $color-darkGreen,10%);
+      @include background-image(linear-gradient(lighten( $color-darkGreen,10%), $color-darkGreen));
+      clear: both;
+      vertical-align: top;
+    }
+
+    @media screen and (min-width: 651px) {
+      .post-featured {
+        width: 26%;
+        display: table-cell;
+      }
+    }
+
+    @media screen and (max-width: 650px) {
+      .post-featured {
+        width: 100%;
+        display: block;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .post-meta {
+        display: none;
+      }
+
+      .social-tripadvisor {
+        display: none;
+      }
+    }
+    
+    .post-excerpt {
+      width: 95%;
+      padding: 10px 2%;
+      text-align: justify;
+      display: table-cell;
+    }
+
+    .post-meta, .post-meta-event {
+      text-align: center;
+      color: $color-white;
+
+      .post-meta-day {
+        font-size: 4rem;
+        font-size: 40px;
+      }
+      .post-meta-month{
+        font-size: 3rem;
+        font-size: 30px;
+      }
+
+      .post-meta-author a:link, .post-meta-author, .post-meta-date {
+        font-size: 2rem;
+        font-size: 20px;
+        color: #fff;
+      }
+
+      .post-meta-date-side {
+        font-size: 2rem;
+        font-size: 20px;
+        color: #fff;        
+      }
+    }
+
+    img {
+      border: 0px;
     }
   }
 
   img.img-news {
     width: 100%;
-    max-width: 200px;
     display: inline-block;
     vertical-align: top;
     border: 2px solid $color-darkCement;
@@ -243,10 +319,10 @@ a.info-twitter {
   }
 }
 
+
+
 section.social {
   margin: 20px 0;
-  width: 50%;
-  float: left;
 
     ul {
       padding: 0;
@@ -262,10 +338,16 @@ section.social {
       color: $color-darkGreen;
     }
 }
-
-@media screen and (max-width: $mobile) {
+@media screen and (min-width: 800px) {
   section.social {
-    width: 100%;
+    width: 33.333%;
+    float: left;
+  }
+}
+@media screen and (max-width: 800px) {
+  section.social {
+    width: 90%;
+    margin: 10px auto;
     display: block;
   }
 }
@@ -275,43 +357,135 @@ section.social {
 }
 
 a.share-home {
-  width: 50% !important;
+  width: 100% !important;
   height: auto !important;
+  min-height: 70px;
   font-size: 20px;
   font-size: 2rem;
-  padding: 10px;
-  margin: 0 15%;
-  margin-right: 0px !important;
+ // padding: 10px;
+  margin: 0 auto;
   display: block;
 }
 
-.social-image {
-  width: 150px;
-
-  img {
-    max-width: 150px;
-    width: 100%;
-    display: block;
+a.share-link-home:link {
+    width: 100px;
+    height: 35px;
+    line-height: 70px;
+    text-align: center;
+    text-decoration: none;
     margin: 0 auto;
-  }
+    text-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
 }
+
+a.share-tripadvisor:link, a.share-tripadvisor:visited {
+    background-color: #4B7E37;
+    color: #fff;
+    border: 2px solid #4B7E37;
+}
+
+a.share-tripadvisor:hover {
+    background-color: #fff;
+    color: #4B7E37;
+}
+
 .social-image:hover {
   background-position: top;
 }
 
+@media screen and (min-width: 801px) {
+  .social-image {
+    width: 150px;
+    margin: 0 auto;
+
+    img {
+      max-width: 150px;
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .social-image {
+    width: 60px;
+    height: 60px;
+    float: left;
+
+    img {
+      max-width: 60px !important;
+      max-height: 60px;
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    a.info-link {
+      max-height: 60px;
+      max-width: 60px;
+      background-size: 100%;
+      background-image: url('images/sprites-retina/buttons-s8027c8ff91.png');
+      margin: 5px 0px 5px 5px;
+    }
+
+    a.info-twitter {
+      background-position: 0 -720px !important;
+    }
+    a.info-twitter:hover {
+      background-position: 0 -780px !important;
+    }
+
+    a.info-facebook {
+      background-position: 0 -120px !important;
+    }
+    a.info-facebook:hover {
+      background-position: 0 -180px !important;
+    }
+  }
+    
+  ul.home-tweets-ul {
+    display: none;
+
+    li {
+      margin: 0px;
+    }
+  }
+
+  
+}
+
+.social-tripadvisor {
+  height: 140px;
+  margin-top: 15px;
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  .social-tripadvisor {
+    display: none;
+  }
+}
+
+#CDSWIDCOE {
+  margin: 32px auto 0 auto !important;
+}
+
 .social-box {
-  width: 70%;
+  width: 90%;
+  margin: 0 auto;
+  text-align: justify;
 }
 
 @media screen and (min-width: 800px) {
   .social-image, .social-box {
-    float: left;
+   
   }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1024px) {
   .social-box {
-    width: 50%;
+    width: 90%;
+    margin: 0 auto;
   }
 }
 

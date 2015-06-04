@@ -31,17 +31,44 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+        <div class="fixed-header-wrap">
+            <div class="fixed-header-inner">
+                <a href="<?php bloginfo('home'); ?>"><img class="tsr-small-logo" src="<?php bloginfo('template_url'); ?>/images/tsr-logo-small.png" alt="Telford Steam Railway Logo"></a>
+                <nav id="fixed-header" role="navigation">
+                        <?php 
+                            wp_nav_menu( array( 'theme_location' => 'header-menu', 'sub_menu' => true, 'menu_class' => 'fixed-header', 'depth' => 2, ) ); 
+                          
+                            $parent = $post->post_parent;
+
+                            if ($parent != 0) {
+
+                                echo '<ul class="fixed-sub-menu">';
+
+                                wp_list_pages( array('child_of' => $parent, 'title_li' => __(''),));
+
+                                echo "</ul>";
+
+                            }
+                        ?>
+
+                </nav>
+                
+                <div class="fixedHeaderButtonMobile"><a href="#" id="fixed-mobile-button" title="Mobile">Menu</a></div>
+
+            </div>
+        </div>
+
             <div id="wrapper">
                 
                 <nav id="mobile" role="navigation">
 
                     <?php wp_nav_menu( array( 'theme_location' => 'mobile-menu', 'menu_class' => 'menu-mobile' ) ); ?>
                 </nav>
-            
+            <main>
                 <header role="banner">
 
                     <div class="container">           
-                        <div class="headerButtonMobile"><a href="#" id="mobile-button" title="Mobile">Menu</a></div>
+                        
                         <div class="headerButton">
                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                 <input type="hidden" name="cmd" value="_s-xclick">
@@ -88,3 +115,5 @@
                         ?>
 
                     </nav>
+
+                    

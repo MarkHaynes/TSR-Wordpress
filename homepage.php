@@ -33,26 +33,48 @@ Template Name: Homepage
     </div>
 
   <section class="social">
+    
+    <div class="social-box">
     <div class="social-image twitter">
       <a class="info-link info-twitter" href="http://twitter.com/tsrheritage" title="Follow us on Twitter"></a>
     </div>
-    <div class="social-box">
       <?php include_once (TEMPLATEPATH . '/tweets.php'); ?>
-      <a class="share-home share-link share-twitter" href="http://twitter.com/tsrheritage" title="Follow us on Twitter">Follow us on Twitter</a>
+      <a class="share-home share-link-home share-twitter" href="http://twitter.com/tsrheritage" title="Follow us on Twitter">Follow us on Twitter</a>
     </div>
   </section>
 
   <section class="social">
 
+    
+    <div class="social-box">
     <div class="social-image facebook">
     <a class="info-link info-facebook" href="http://www.facebook.com/groups/155261792870" title="Join us on Facebook"></a>
     </div>
-    <div class="social-box">
         <ul class="home-tweets-ul"><li><p class="home-tweet-tweet">"Join our Facebook Group for the latest news and information from Telford Steam Railway."<br></p></li></ul>
-        <a class="share-home share-link share-facebook" href="http://www.facebook.com/groups/155261792870" title="Join us on Facebook">Join us on Facebook</a>
+        <a class="share-home share-link-home share-facebook" href="http://www.facebook.com/groups/155261792870" title="Join us on Facebook">Join us on Facebook</a>
     </div>
     <div class="clearfix"></div>
+</section>
+
+  <section class="social">
+  <div class="social-box">
+    <div class="social-tripadvisor">
+      <div id="TA_certificateOfExcellence483" class="TA_certificateOfExcellence">
+        <ul id="m9vBYIofXL" class="TA_links MJEngwLDtNT">
+          <li id="ATvalWia2" class="yFkiNdYIIRYO">
+            <a target="_blank" href="http://www.tripadvisor.co.uk/Attraction_Review-g187050-d3596554-Reviews-Telford_Steam_Railway-Telford_Shropshire_England.html"><img src="http://www.tripadvisor.co.uk/img/cdsi/img2/awards/CoE2015_WidgetAsset-14348-2.png" alt="TripAdvisor" class="widCOEImg" id="CDSWIDCOELOGO"/></a>
+          </li>
+        </ul>
+      </div>
+      <script src="http://www.jscache.com/wejs?wtype=certificateOfExcellence&amp;uniq=483&amp;locationId=3596554&amp;lang=en_UK&amp;year=2015&amp;display_version=2"></script>
+
+    </div>
+    
+      <ul class="home-tweets-ul"><li><p class="home-tweet-tweet">"In 2015 we were awarded with a certificate of excellence from tripadvisor."<br></p></li></ul>
+      <a class="share-home share-link-home share-tripadvisor" href="http://www.tripadvisor.co.uk/Attraction_Review-g187050-d3596554-Reviews-Telford_Steam_Railway-Telford_Shropshire_England.html" title="Check us out of Tripadvisor">Find us on Tripadvisor</a>
+    </div>
   </section>
+
 
   <section class="latest-news">
     <h1> Latest News</h1>
@@ -64,14 +86,19 @@ Template Name: Homepage
           <?php if ( has_post_thumbnail() ) {
               $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(),'news-homepage' );
                  echo '<img src="' . $image_src[0]  . '" alt="'. get_the_title() . '"/>';
-                 }; ?>
+                 }; ?> 
+        <div class="post-meta">
+                <div class="post-meta-date">
+                  <div style="font-size: 1.6rem; font-size: 16px;"> Posted On:</div><?php the_time('jS F Y') ?>
+                </div>
+                  
+            <div class="post-meta-author"><div style="font-size: 1.6rem; font-size: 16px;"> Author:</div><?php the_author_posts_link(); ?>  </div>
+          </div>
         </div>
 
         <div class="post-excerpt">
           <h1 class="post-title"><a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><?php the_title();?></a></h1>
-          <div class="post-meta">
-            Posted on: <?php the_time('jS F Y') ?> by <?php the_author_posts_link() ?>  
-          </div>
+         
           <p><?php the_excerpt();?></p>
 
           <a class="post-more" href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>">Read More...</a>
@@ -86,39 +113,49 @@ Template Name: Homepage
   </section>
   
   <?php 
-  $time = date("Y-m-d");
+  $time = time();
   $loop = new WP_Query( array(
-            'numberposts' => -1,
-                      'category_name' => 'events',
-                      'meta_query' => array
-                      (
-                        array(
-                          'key' => 'end_date',
-                          'value' => $time,
-                          'type' => 'DATE',
-                          'compare' => '>='
-                        )
-                      )
+            'post_type'      => 'event_post',
+            'posts_per_page' => -1,
+            'post_status'    => 'publish',
+            'meta_query'     => array(
+              array(
+                'key'     => '_eventenddate',
+                'value'   => $time,
+                'compare' => '>=',
+              ) 
+            )
   ));
   ?>
 
-  <?php if ( have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
+  <?php if ( $loop->have_posts() ) : ?>
   
   <section class="latest-news">
     <h1> Events</h1>
+    <? while ( $loop->have_posts() ) : $loop->the_post(); ?>
       <article class="post-wrap">
         <div class="post-featured">
           <?php if ( has_post_thumbnail() ) {
               $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(),'news-homepage' );
                  echo '<img src="' . $image_src[0]  . '" alt="'. get_the_title() . '"/>';
-                 }; ?>
+                 }; ?> <div class="post-meta-event">
+
+                 <?php $meta_event_start_date = get_post_meta( $post->ID, '_eventstartdate', true ); ?>
+                 <?php $meta_event_end_date = get_post_meta( $post->ID, '_eventenddate', true ); ?>
+
+                  <div class="post-meta-date-side"><?php echo (date ("dS F Y",$meta_event_start_date)); ?> 
+                  <?php if ($meta_event_start_date != $meta_event_end_date) { ?>
+                    <br> to <br> <?php echo (date ("dS F Y",$meta_event_end_date)); ?>
+                  <?php 
+                  }
+                  ?>
+                  </div>
+                  <div class="post-meta-month"></div>
+          </div>
         </div>
 
         <div class="post-excerpt">
           <h1 class="post-title"><a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><?php the_title();?></a></h1>
-          <div class="post-meta">
-            Posted on: <?php the_time('jS F Y') ?> by <?php the_author_posts_link() ?>  
-          </div>
           
           <p><?php the_excerpt();?></p>
 
@@ -128,9 +165,11 @@ Template Name: Homepage
         <div class="clearfix"></div>
       </article>
 
-  </section>
+  
 
-  <?php endwhile; else: ?>
+  <?php endwhile; ?>
+  </section> 
+<?php else: ?>
       
   <?php endif; ?>
 
